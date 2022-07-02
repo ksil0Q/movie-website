@@ -4,3 +4,10 @@
 Approximate view of tables in the database (without M2M)
 
 ![all text](https://user-images.githubusercontent.com/82338605/176542229-13fc42e2-b956-4fe5-9512-11578f0db9b1.png)
+
+for admin panel was created superuser with arguments in path - /admin:
+{
+    Username: admin
+    Password: admin
+    Email: admin@mail.ru
+}
