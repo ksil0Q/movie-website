@@ -1564,3 +1564,8 @@ a.move-top span {
 @media(max-width:320px) {}
 
 /*--//responsive--*/
+
+.img-movie-shots {
+  max-width: 15px;
+  height: auto;
+}
