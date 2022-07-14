@@ -381,7 +381,6 @@ li > a:only-child:after {
 /* header */
 
 /*--/banner --*/
-
 .main-banner {
     background: url(../images/banner.jpg)no-repeat center;
     -webkit-background-size: cover;
@@ -409,7 +408,6 @@ li > a:only-child:after {
     margin-top: 0;
     background-image: url('../images/single-post-pic.jpg')
 }
-
 /*-- place holder --*/
 
 .banner-form ::-webkit-input-placeholder {
