@@ -3,7 +3,14 @@ from datetime import date
 from django.urls import reverse
 
 
-class Category(models.Model):
+class BaseModel(models.Model):
+    objects = models.Manager()
+
+    class Meta:
+        abstract = True
+
+
+class Category(BaseModel):
     """Categories model for db"""
     name = models.CharField('Category', max_length=150)
     description = models.TextField('Description')
@@ -17,7 +24,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
 
-class Actor(models.Model):
+class Actor(BaseModel):
     """Actors model for db"""
     name = models.CharField('Actor', max_length=150)
     description = models.TextField('Description')
@@ -32,7 +39,7 @@ class Actor(models.Model):
         verbose_name_plural = 'Actors & Directors'
 
 
-class Genre(models.Model):
+class Genre(BaseModel):
     """Genre model for db"""
     name = models.CharField('Genre', max_length=150)
     description = models.TextField('Description')
@@ -46,7 +53,7 @@ class Genre(models.Model):
         verbose_name_plural = 'Genres'
 
 
-class Movie(models.Model):
+class Movie(BaseModel):
     """Movie model for db"""
     title = models.CharField('Title', max_length=100)
     tag = models.CharField('Tagline', max_length=100, default='')
@@ -83,7 +90,7 @@ class Movie(models.Model):
         verbose_name_plural = 'Movies'
 
 
-class MovieShots(models.Model):
+class MovieShots(BaseModel):
     """Movie shots model for db"""
     title = models.CharField('Title', max_length=100)
     description = models.TextField('Description')
@@ -99,7 +106,7 @@ class MovieShots(models.Model):
         verbose_name_plural = 'Movie shots'
 
 
-class RatingStar(models.Model):
+class RatingStar(BaseModel):
     """Rating star model for db"""
     value = models.PositiveSmallIntegerField('Value', default=0)
 
@@ -111,7 +118,7 @@ class RatingStar(models.Model):
         verbose_name_plural = 'Rating stars'
 
 
-class Rating(models.Model):
+class Rating(BaseModel):
     """Rating model for db"""
     user_ip = models.CharField('User IP', max_length=15)
     star = models.ForeignKey(RatingStar, on_delete=models.CASCADE,
@@ -127,7 +134,7 @@ class Rating(models.Model):
         verbose_name_plural = 'Ratings'
 
 
-class Reviews(models.Model):
+class Reviews(BaseModel):
     """Reviews model for db"""
     email = models.EmailField()
     name = models.CharField('User name', max_length=100)
